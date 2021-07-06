@@ -37,7 +37,7 @@ chrome_options.add_experimental_option("prefs", { \
 
 
 
-token = '1778739077:AAE8GQ6ANUBYLu-CQW0FF_5PZZtVd3p56Dw'
+token = os.environ.get("TOKEN")
 bot = telebot.TeleBot(token)
 
 

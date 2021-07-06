@@ -38,20 +38,19 @@ def command(message):
 
 @bot.message_handler(commands=['mail'])
 def command(message):
-  global mail
-  mail=message.text.split()[1]
-  #print(mail)
-  chkmail=r"(^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$)"
-  if re.match(chkmail,mail):
-    #print("valid mail")
-    try:
-      #print(2)
-      bot.send_message(message.chat.id, f" ok got your mail => {mail} now send your password like  /password yourpasswordhere ")
-       #login(message)
-    except:
-      bot.send_message(message.chat.id, f"format : /mail yourmail@mail.com ")
-  else:
-      bot.send_message(message.chat.id, f" not a  mail format : /mail yourmail@mail.com  /help !")
+  try:
+    global mail
+    mail=message.text.split()[1]
+    print(mail)
+    chkmail=r"(^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$)"
+    if re.match(chkmail,mail):
+    print("valid mail")
+    bot.send_message(message.chat.id, f" ok got your mail => {mail} now send your password like  /password yourpasswordhere ")
+    else:
+    bot.send_message(message.chat.id, f" not a  mail format : /mail yourmail@mail.com  /help !")
+
+  except:
+    bot.send_message(message.chat.id, f"format : /mail yourmail@mail.com ")
 
 
 @bot.message_handler(commands=['password'])

@@ -52,8 +52,9 @@ def login(message,classno,mail,password):
    driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), options=chrome_options)
    #driver.maximize_window()  
    #path='E:/selenium/chromedriver.exe'
-   #driver = webdriver.Chrome(executable_path=path,options=chrome_options)  
-   driver.get("https://rvrjcce.codetantra.com")    
+   #driver = webdriver.Chrome(executable_path=path,options=chrome_options)
+   link=os.environ.get("LINK")
+   driver.get(link)    
    sleep(2)        
    l=driver.find_element_by_link_text("Log in")    
    l.click()   

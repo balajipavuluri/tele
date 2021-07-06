@@ -44,10 +44,10 @@ def command(message):
     print(mail)
     chkmail=r"(^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$)"
     if re.match(chkmail,mail):
-    print("valid mail")
-    bot.send_message(message.chat.id, f" ok got your mail => {mail} now send your password like  /password yourpasswordhere ")
+        print("valid mail")
+        bot.send_message(message.chat.id, f" ok got your mail => {mail} now send your password like  /password yourpasswordhere ")
     else:
-    bot.send_message(message.chat.id, f" not a  mail format : /mail yourmail@mail.com  /help !")
+        bot.send_message(message.chat.id, f" not a  mail format : /mail yourmail@mail.com  /help !")
 
   except:
     bot.send_message(message.chat.id, f"format : /mail yourmail@mail.com ")

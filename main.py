@@ -12,6 +12,8 @@ import func
 
 def main():
     global bot
+    global driver
+    driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), options=chrome_options)
     
     token = os.environ.get("TOKEN")
     bot = telebot.TeleBot(token)
@@ -101,7 +103,7 @@ def main():
      try:
         mail=password=classno=0
         bot.send_message(message.chat.id, f"cleared all   ")
-        browser.quit()
+        driver.quit()
         
      except:
         bot.send_message(message.chat.id, f" some problem  ")

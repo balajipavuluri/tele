@@ -109,6 +109,7 @@ def main():
             del mail
             del password
             del classno
+            print("del all")
             print("i doubt it got login")
         except:
             bot.send_message(message.chat.id, f" /help !! after entering /mail mail@yourmail.com /password yourpassword /joinclass numberofclassoftheday do /login  ")

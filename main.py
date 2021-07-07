@@ -116,6 +116,7 @@ def main():
         bot.send_message(message.chat.id, f"cleared all   ")
         driver.quit()
         func.log(message)
+        print("ok trying")
         
      except:
         bot.send_message(message.chat.id, f" some problem  ")

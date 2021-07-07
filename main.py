@@ -77,6 +77,7 @@ def main():
       try:
         global classno
         classno=int(message.text.split()[1])
+        print(mail,password,classno)
         bot.send_message(message.chat.id, f" ok got your class number: {classno}  now enter /login ")
       except:
         bot.send_message(message.chat.id, f"format : /joinclass classno |  ")
@@ -100,6 +101,7 @@ def main():
      try:
         mail=password=classno=0
         bot.send_message(message.chat.id, f"cleared all   ")
+        browser.quit()
         
      except:
         bot.send_message(message.chat.id, f" some problem  ")

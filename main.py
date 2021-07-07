@@ -12,7 +12,7 @@ import func
 
 def main():
     global mail,password,classno,bot
-    mail=password=classno=''
+    mail=password=classno=None
     
     token = os.environ.get("TOKEN")
     bot = telebot.TeleBot(token)
@@ -81,12 +81,16 @@ def main():
 
     @bot.message_handler(commands=['login'])
     def command(message):
-      try:
-        bot.send_message(message.chat.id, f" ok wait im trying logging in.......... | {current_time} ")
-        bot.send_message(message.chat.id, f" mai|l={mail} | password = {password} | classno = {classno} ")
-        func.login(message,classno,mail,password)
-      except:
+      if (mail != None and password!=None and  classno!=None):
+          try:
+            bot.send_message(message.chat.id, f" ok wait im trying logging in.......... | {current_time} ")
+            bot.send_message(message.chat.id, f" mail={mail} | password = {password} | classno = {classno} ")
+            func.login(message,classno,mail,password)
+          except:
+            bot.send_message(message.chat.id, f" /help !! after entering /mail mail@yourmail.com /password yourpassword /joinclass numberofclassoftheday do /login  ")
+      else:
         bot.send_message(message.chat.id, f" /help !! after entering /mail mail@yourmail.com /password yourpassword /joinclass numberofclassoftheday do /login  ")
+        
 
 
 

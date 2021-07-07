@@ -6,7 +6,18 @@ import sys
 import re
 from datetime import datetime
 
-
+from selenium import webdriver
+chrome_options = webdriver.ChromeOptions()
+chrome_options.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
+chrome_options.add_argument("--headless")
+chrome_options.add_argument("--disable-dev-shm-usage")
+chrome_options.add_argument("--no-sandbox")
+chrome_options.add_argument("--window-size=1200,800")
+chrome_options.add_experimental_option("prefs", { \
+    "profile.default_content_setting_values.media_stream_mic": 2,     # 1:allow, 2:block
+    "profile.default_content_setting_values.media_stream_camera": 2,
+     "profile.default_content_setting_values.notifications": 2
+  })
 
 import func
 

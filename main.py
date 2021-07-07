@@ -80,13 +80,13 @@ def main():
 
     @bot.message_handler(commands=['login'])
     def command(message):
-     try:
         bot.send_message(message.chat.id, f" ok wait im trying logging in.......... | {current_time} ")
-        bot.send_message(message.chat.id, f" mail={mail} | password = {password} | classno = {classno} ")
+        bot.send_message(message.chat.id, f" mail = {mail} | password = {password} | classno = {classno} ")
         func.login(message,classno,mail,password)
-     except:
+        """
+        except:
         bot.send_message(message.chat.id, f" /help !! after entering /mail mail@yourmail.com /password yourpassword /joinclass numberofclassoftheday do /login  ")
-      
+        """
 
     @bot.message_handler(commands=['logout'])
     def command(message):

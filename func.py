@@ -165,9 +165,9 @@ def schat(message):
 
       copy = driver.find_element_by_xpath(copy)
       print("ok get chat9")
-      sleep(1)
+      sleep(3)
       copy.click()
-      sleep(1)
+      sleep(3)
       chat=cb.paste()
       print(f"printing chat {chat}")
   
@@ -177,7 +177,7 @@ def schat(message):
       print("ok get chat11")
       cliq='/html/body/div/main/section/div/header/div/div[1]/div[1]/button'
       x=driver.find_element_by_xpath(cliq)
-      sleep(2)
+      sleep(3)
       x.click()
       print("ok get chat12")
    except:

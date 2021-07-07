@@ -11,7 +11,7 @@ from datetime import datetime
 import func
 
 def main():
-    global mail,password,classno,bot
+    global bot
     
     token = os.environ.get("TOKEN")
     bot = telebot.TeleBot(token)
@@ -45,6 +45,7 @@ def main():
     @bot.message_handler(commands=['mail'])
     def command(message):
       try:
+        global mail
         mail=message.text.split()[1]
         print(mail)
         chkmail=r"(^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$)"
@@ -61,7 +62,9 @@ def main():
     @bot.message_handler(commands=['password'])
     def command(message):
       try:
+        global password
         password=str(message.text.split()[1])
+        print(mail , password)
 
         bot.send_message(message.chat.id, f" ok got your password: {password} now   /joinclass number   ")
          #login(message)
@@ -72,6 +75,7 @@ def main():
     @bot.message_handler(commands=['joinclass'])
     def command(message):
       try:
+        global classno
         classno=int(message.text.split()[1])
         bot.send_message(message.chat.id, f" ok got your class number: {classno}  now enter /login ")
       except:

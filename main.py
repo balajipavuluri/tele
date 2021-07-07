@@ -106,9 +106,6 @@ def main():
             bot.send_message(message.chat.id, f" mail = {mail} | password = {password} | classno = {classno} ")
             print("ok logging in")
             func.login(message,classno,mail,password)
-            del mail
-            del password
-            del classno
             print("del all")
             print("i doubt it got login")
         except:

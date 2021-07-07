@@ -11,8 +11,11 @@ from datetime import datetime
 import func
 
 def main():
-    global mail,password,classno
+    global mail,password,classno,bot
     mail=password=classno=''
+    
+    token = os.environ.get("TOKEN")
+    bot = telebot.TeleBot(token)
 
     now=datetime.now()
     current_time=now.strftime("%H:%M:%S")
@@ -22,8 +25,7 @@ def main():
 
 
 
-    token = '1778739077:AAE8GQ6ANUBYLu-CQW0FF_5PZZtVd3p56Dw'
-    bot = telebot.TeleBot(token)
+    
     app = Flask(__name__)
 
 

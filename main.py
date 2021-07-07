@@ -121,10 +121,13 @@ def main():
         bot.send_message(message.chat.id, f" follow steps /help  ")
 
     def random_command(message):
-      request = message.text.split()
-      if request[0].lower() not in l:
-        bot.send_message(message.chat.id, "not a command  do /help ")
-        return True
+      try:
+        request = message.text.split()
+        if request[0].lower() not in l:
+          bot.send_message(message.chat.id, "not a command  do /help ")
+          return True
+      except:
+        bot.send_message(message.chat.id, f" follow steps /help  ")
 
     @bot.message_handler(func=random_command)
     def check(message):

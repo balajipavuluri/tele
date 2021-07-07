@@ -146,19 +146,19 @@ def schat(message):
       print("ok get chat2")
       x=driver.find_element_by_xpath(cliq)
       print("ok get chat3")
-      sleep(3)
+      sleep(1)
       print("ok get chat4")
       x.click()
       print("ok get chat5")
       public_chat='/html/body/div/main/section/div[2]/div/div/div[2]/div[1]/div[2]/div/div/div'
       x=driver.find_element_by_xpath(public_chat)
       print("ok get chat6")
-      sleep(3)
+      sleep(1)
       x.click()
       print("ok get chat7")
       z='/html/body/div/main/section/div[5]/section/div/header/div[2]'
       text=driver.find_element_by_xpath(z)
-      sleep(3)
+      sleep(1)
       text.click()
       print("ok get chat8")
       copy = '/html/body/div/main/section/div[5]/section/div/header/div[2]/div/div/ul/li[2]/span[1]'
@@ -166,13 +166,17 @@ def schat(message):
       copy = driver.find_element_by_xpath(copy)
       print("ok get chat9")
       sleep(3)
+      print(91)
       copy.click()
+      print(92)
       sleep(3)
       chat=cb.paste()
+      print(93)
       print(f"printing chat {chat}")
-  
+      print(94)
       print("ok get chat10")
       bot.send_message(message.chat.id, f"{chat}")
+      print(101)
       del chat
       print("ok get chat11")
       cliq='/html/body/div/main/section/div/header/div/div[1]/div[1]/button'

@@ -12,7 +12,6 @@ import func
 
 def main():
     global mail,password,classno,bot
-    mail=password=classno=None
     
     token = os.environ.get("TOKEN")
     bot = telebot.TeleBot(token)
@@ -29,7 +28,7 @@ def main():
     app = Flask(__name__)
 
 
-    l= ['/help','/login','/joinclass','/start','/mail','/password','/showchat','/photo']
+    l= ['/help','/login','/joinclass','/start','/mail','/password','/showchat','/photo','/logout']
 
     @app.route('/', methods=["POST"])
     def webhook():
@@ -81,18 +80,22 @@ def main():
 
     @bot.message_handler(commands=['login'])
     def command(message):
-      if (mail != None and password!=None and  classno!=None):
-          try:
-            bot.send_message(message.chat.id, f" ok wait im trying logging in.......... | {current_time} ")
-            bot.send_message(message.chat.id, f" mail={mail} | password = {password} | classno = {classno} ")
-            func.login(message,classno,mail,password)
-          except:
-            bot.send_message(message.chat.id, f" /help !! after entering /mail mail@yourmail.com /password yourpassword /joinclass numberofclassoftheday do /login  ")
-      else:
+     try:
+        bot.send_message(message.chat.id, f" ok wait im trying logging in.......... | {current_time} ")
+        bot.send_message(message.chat.id, f" mail={mail} | password = {password} | classno = {classno} ")
+        func.login(message,classno,mail,password)
+     except:
         bot.send_message(message.chat.id, f" /help !! after entering /mail mail@yourmail.com /password yourpassword /joinclass numberofclassoftheday do /login  ")
+      
+
+    @bot.message_handler(commands=['logout'])
+    def command(message):
+     try:
+        mail=password=classno=0
+        bot.send_message(message.chat.id, f"cleared all   ")
         
-
-
+     except:
+        bot.send_message(message.chat.id, f" some problem  ")
 
     @bot.message_handler(commands=['help'])
     def command(message):

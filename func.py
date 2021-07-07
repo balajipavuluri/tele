@@ -166,8 +166,10 @@ def schat(message):
       sleep(1)
       chat=cb.paste()
       print(f"printing chat {chat}")
+  
       print("ok get chat10")
       bot.send_message(message.chat.id, f"{chat}")
+      del chat
       print("ok get chat11")
       cliq='/html/body/div/main/section/div/header/div/div[1]/div[1]/button'
       x=driver.find_element_by_xpath(cliq)

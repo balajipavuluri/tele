@@ -137,38 +137,48 @@ def login(message,classno,mail,password):
 
 def schat(message):
    try:
+      print("ok get chat1")
       cliq='/html/body/div/main/section/div/header/div/div[1]/div[1]/button'
+      print("ok get chat2")
       x=driver.find_element_by_xpath(cliq)
-      sleep(2)
+      print("ok get chat3")
+      sleep(3)
+      print("ok get chat4")
       x.click()
+      print("ok get chat5")
       public_chat='/html/body/div/main/section/div[2]/div/div/div[2]/div[1]/div[2]/div/div/div'
       x=driver.find_element_by_xpath(public_chat)
-      sleep(2)
+      print("ok get chat6")
+      sleep(3)
       x.click()
-
+      print("ok get chat7")
       z='/html/body/div/main/section/div[5]/section/div/header/div[2]'
       text=driver.find_element_by_xpath(z)
-      sleep(2)
+      sleep(3)
       text.click()
+      print("ok get chat8")
       copy = '/html/body/div/main/section/div[5]/section/div/header/div[2]/div/div/ul/li[2]/span[1]'
 
       copy = driver.find_element_by_xpath(copy)
-
+      print("ok get chat9")
       sleep(1)
       copy.click()
       sleep(1)
       chat=cb.paste()
-      #print(chat)
+      print(f"printing chat {chat}")
+      print("ok get chat10")
       bot.send_message(message.chat.id, f"{chat}")
-
+      print("ok get chat11")
       cliq='/html/body/div/main/section/div/header/div/div[1]/div[1]/button'
       x=driver.find_element_by_xpath(cliq)
       sleep(2)
       x.click()
+      print("ok get chat12")
    except:
       image(message)
       bot.send_message(message.chat.id, f"chat not available  try /help time {current_time}")
       print("chat option not available")
+      print("success fail")
 
 def image(message):
    try:
@@ -179,4 +189,19 @@ def image(message):
       os.remove('ss.png')
    except:
        bot.send_message(message.chat.id, f"make sure login to class or try /help time {current_time} ")
+ 
+def log(message):
+   try:
+      print("logging out")
+      sleep(2)
+      #bot.send_chat_action(message.chat.id=userId, action=ChatAction.UPLOAD_PHOTO)
+      bot.send_message(message.chat.id, f" logging out {current_time} ")
+      driver.quit()
+      print("success logout")
+        
+
+   except:
+      bot.send_message(message.chat.id, f"make sure login to class or try /help time {current_time} ")
+      print("success logout failed")
+
 

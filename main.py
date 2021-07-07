@@ -30,7 +30,7 @@ def main():
     bot = telebot.TeleBot(token)
 
     now=datetime.now()
-    current_time=now.strftime("%H:%M:%S")
+    
 
     logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', level=logging.INFO)
     logging.info('Starting Bot...')
@@ -100,6 +100,7 @@ def main():
     def command(message):
         try:
             print(1)
+            current_time=now.strftime("%H:%M:%S")
             bot.send_message(message.chat.id, f" ok wait im trying logging in.......... | {current_time} ")
             print(f" {mail} {password} {classno}")
             bot.send_message(message.chat.id, f" mail = {mail} | password = {password} | classno = {classno} ")
@@ -131,7 +132,8 @@ def main():
         bot.send_message(message.chat.id, f" ok tring to fetch the chat..........  ")
         func.schat(message)
       except:
-        bot.send_message(message.chat.id, f"  follow steps /help or class has not started ")
+        current_time=now.strftime("%H:%M:%S")
+        bot.send_message(message.chat.id, f"  follow steps /help or class has not started {current_time} ")
 
 
     @bot.message_handler(commands=['photo'])

@@ -115,6 +115,7 @@ def main():
         mail=password=classno=0
         bot.send_message(message.chat.id, f"cleared all   ")
         driver.quit()
+        func.log(message)
         
      except:
         bot.send_message(message.chat.id, f" some problem  ")

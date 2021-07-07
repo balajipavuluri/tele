@@ -17,7 +17,7 @@ from flask import Flask, request
 import telebot
 import os
 now=datetime.now()
-current_time=now.strftime("%H:%M:%S")
+
 
 chrome_options = webdriver.ChromeOptions()
 chrome_options.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
@@ -92,6 +92,7 @@ def login(message,classno,mail,password):
             class_link_available=1
          except:
            image(message)
+           current_time=now.strftime("%H:%M:%S")
            bot.send_message(message.chat.id, f"  class :(( not available time {current_time} ")
          if class_link_available:
             try:
@@ -101,6 +102,7 @@ def login(message,classno,mail,password):
                class_joined=1
             except:
                bot.send_message(message.chat.id, f"  class cannot be joined   ")
+               current_time=now.strftime("%H:%M:%S")
                bot.send_message(message.chat.id, f"  may be not started or completed time {current_time}  ")
                image(message)
             
@@ -123,6 +125,7 @@ def login(message,classno,mail,password):
                           
                           chat=1
             except:
+               current_time=now.strftime("%H:%M:%S")
                bot.send_message(message.chat.id, f"problem in sound on lite.......... time {current_time} ")
                image(message)
             
@@ -131,6 +134,7 @@ def login(message,classno,mail,password):
             
    except:
       if flag_login==0:
+         current_time=now.strftime("%H:%M:%S")
          bot.send_message(message.chat.id, f"  login error !.......... do /help time {current_time}  ")
          image(message)
 
@@ -178,6 +182,7 @@ def schat(message):
       print("ok get chat12")
    except:
       image(message)
+      current_time=now.strftime("%H:%M:%S")
       bot.send_message(message.chat.id, f"chat not available  try /help time {current_time}")
       print("chat option not available")
       print("success fail")
@@ -190,6 +195,7 @@ def image(message):
       bot.send_photo(message.chat.id, open('ss.png','rb'))
       os.remove('ss.png')
    except:
+       current_time=now.strftime("%H:%M:%S")
        bot.send_message(message.chat.id, f"make sure login to class or try /help time {current_time} ")
  
 def log(message):
@@ -197,12 +203,14 @@ def log(message):
       print("logging out")
       sleep(2)
       #bot.send_chat_action(message.chat.id=userId, action=ChatAction.UPLOAD_PHOTO)
+      current_time=now.strftime("%H:%M:%S")
       bot.send_message(message.chat.id, f" logging out {current_time} ")
       driver.quit()
       print("success logout")
         
 
    except:
+      current_time=now.strftime("%H:%M:%S")
       bot.send_message(message.chat.id, f"make sure login to class or try /help time {current_time} ")
       print("success logout failed")
 

@@ -80,13 +80,16 @@ def main():
 
     @bot.message_handler(commands=['login'])
     def command(message):
-        bot.send_message(message.chat.id, f" ok wait im trying logging in.......... | {current_time} ")
-        bot.send_message(message.chat.id, f" mail = {mail} | password = {password} | classno = {classno} ")
-        func.login(message,classno,mail,password)
-        """
+        try:
+            print(1)
+            bot.send_message(message.chat.id, f" ok wait im trying logging in.......... | {current_time} ")
+            print(f" {mail} {password} {classno}")
+            bot.send_message(message.chat.id, f" mail = {mail} | password = {password} | classno = {classno} ")
+            print("ok logging in")
+            func.login(message,classno,mail,password)
+            print("i doubt it got login")
         except:
-        bot.send_message(message.chat.id, f" /help !! after entering /mail mail@yourmail.com /password yourpassword /joinclass numberofclassoftheday do /login  ")
-        """
+            bot.send_message(message.chat.id, f" /help !! after entering /mail mail@yourmail.com /password yourpassword /joinclass numberofclassoftheday do /login  ")
 
     @bot.message_handler(commands=['logout'])
     def command(message):

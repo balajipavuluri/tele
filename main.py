@@ -59,7 +59,7 @@ def main(mail,password,classno):
 
 
     @bot.message_handler(commands=['mail'])
-    def command(message):
+    def command(message,mail):
       try:
         #global mail
         mail=message.text.split()[1]

@@ -22,6 +22,7 @@ chrome_options.add_experimental_option("prefs", { \
 import func
 
 def main():
+    S=set() 
     global bot
     """
     global driver
@@ -66,6 +67,7 @@ def main():
         if re.match(chkmail,mail):
             print("valid mail")
             bot.send_message(message.chat.id, f" ok got your mail => {mail} now send your password like  /password yourpasswordhere ")
+            S.add('x')
         else:
             bot.send_message(message.chat.id, f" not a  mail format : /mail yourmail@mail.com  /help !")
 
@@ -84,6 +86,7 @@ def main():
         print(mail , password)
         print(83)
         bot.send_message(message.chat.id, f" ok got your password: {password} now   /joinclass number   ")
+        S.add('y')
         
       except:
         bot.send_message(message.chat.id, f"format : /password yourpass |  ")
@@ -100,6 +103,7 @@ def main():
         print(mail,password,classno)
         print(99)
         bot.send_message(message.chat.id, f" ok got your class number: {classno}  now enter /login ")
+        S.add('z')
       except:
         bot.send_message(message.chat.id, f"format : /joinclass classno |  ")
 
@@ -107,15 +111,18 @@ def main():
     @bot.message_handler(commands=['login'])
     def command(message):
         try:
-               print(104)
-               current_time=now.strftime("%H:%M:%S")
-               print(105)
-               bot.send_message(message.chat.id, f" ok wait im trying logging in.......... | {current_time} ")
+               print(" length", len(S)) 
+               if len(S)>=3:
+                  print(104)
+                  current_time=now.strftime("%H:%M:%S")
+                  print(105)
+                  bot.send_message(message.chat.id, f" ok wait im trying logging in.......... | {current_time} ")
                
-               print(f" {mail} {password} {classno}")
-               bot.send_message(message.chat.id, f" mail = {mail} | password = {password} | classno = {classno} ")
-               print("ok logging in")
-               func.login(message,classno,mail,password)
+                  print(f" {mail} {password} {classno}")
+                  bot.send_message(message.chat.id, f" mail = {mail} | password = {password} | classno = {classno} ")
+                  print("ok logging in")
+                  func.login(message,classno,mail,password)
+                  print("i doubt it got login")
                """
                print("del all")
                print("i doubt it got login")

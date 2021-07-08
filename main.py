@@ -123,9 +123,9 @@ def main():
     @bot.message_handler(commands=['logout'])
     def command(message):
         try:
-            print(mail password classno)
+            print(f"{mail} {password} {classno}")
             mail=password=classno=0
-            print(mail password classno)
+            print(f"{mail} {password} {classno}")
             bot.send_message(message.chat.id, f"cleared all   ")
             func.log(message)
             print("ok trying")

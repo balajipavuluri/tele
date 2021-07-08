@@ -62,7 +62,7 @@ def main():
       try:
         global mail
         mail=message.text.split()[1]
-        print(mail)
+        print(mail, S)
         chkmail=r"(^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$)"
         if re.match(chkmail,mail):
             print("valid mail")
@@ -83,7 +83,7 @@ def main():
         print(79)
         password=str(message.text.split()[1])
         print(81)
-        print(mail , password)
+        print(mail , password, S)
         print(83)
         bot.send_message(message.chat.id, f" ok got your password: {password} now   /joinclass number   ")
         S.add('y')
@@ -100,7 +100,7 @@ def main():
         print(94)
         classno=int(message.text.split()[1])
         print(96)
-        print(mail,password,classno)
+        print(mail,password,classno, S)
         print(99)
         bot.send_message(message.chat.id, f" ok got your class number: {classno}  now enter /login ")
         S.add('z')
@@ -111,7 +111,7 @@ def main():
     @bot.message_handler(commands=['login'])
     def command(message):
         try:
-               print(" length", len(S)) 
+               print(f" length {S} ") 
                if len(S)>=3:
                   print(104)
                   current_time=now.strftime("%H:%M:%S")

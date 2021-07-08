@@ -21,7 +21,7 @@ chrome_options.add_experimental_option("prefs", { \
 """
 import func
 
-def main():
+def main(mail,password,classno):
     S=set() 
     global bot
     """
@@ -52,7 +52,7 @@ def main():
 
     @bot.message_handler(commands=['start'])
     def command(message):
-        #mail=password=classno=0
+        mail=password=classno=0
         bot.send_message(message.chat.id, 'Hi, ' + message.chat.first_name + '!')
         #login(message)
 
@@ -61,7 +61,7 @@ def main():
     @bot.message_handler(commands=['mail'])
     def command(message):
       try:
-        global mail
+        #global mail
         mail=message.text.split()[1]
         print(mail, S)
         chkmail=r"(^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$)"
@@ -80,7 +80,7 @@ def main():
     def command(message):
       try:
         print(78)
-        global password
+        #global password
         print(79)
         password=str(message.text.split()[1])
         print(81)
@@ -97,7 +97,7 @@ def main():
     def command(message):
       try:
         print(93)
-        global classno
+        #global classno
         print(94)
         classno=int(message.text.split()[1])
         print(96)
@@ -146,9 +146,9 @@ def main():
     @bot.message_handler(commands=['logout'])
     def command(message):
         try:
-            print(f"{mail} {password} {classno}")
+            #print(f"{mail} {password} {classno}")
             #mail=password=classno=0
-            print(f"{mail} {password} {classno}")
+            #print(f"{mail} {password} {classno}")
             bot.send_message(message.chat.id, f"cleared all   ")
             func.log(message)
             print("ok trying")
@@ -192,8 +192,8 @@ def main():
     def check(message):
       pass
 if __name__ == "__main__":
-    #mail=password=classno=0
+    mail=password=classno=0
     
-    main()
+    main(mail,password,classno)
     bot.polling()
 

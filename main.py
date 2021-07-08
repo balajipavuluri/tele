@@ -123,7 +123,7 @@ def main():
                   print("ok logging in")
                   func.login(message,classno,mail,password)
                   print("i doubt it got login")
-                  mail = password = " " 
+                  #mail = password = " " 
                else:
                   bot.send_message(message.chat.id," do /help ") 
                   print(f" may be {mail} {password} {classno} not sent  {len(S)} ") 

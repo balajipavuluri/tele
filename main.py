@@ -117,6 +117,14 @@ def main():
                func.login(message,classno,mail,password)
                print("del all")
                print("i doubt it got login")
+               print("del all1")
+               del mail
+               print("del all2")
+               del password
+               print("del all3")
+               del classno
+               print("del all4")
+               
         except:
                bot.send_message(message.chat.id, f" /help !! after entering /mail mail@yourmail.com /password yourpassword /joinclass numberofclassoftheday do /login  ")
             

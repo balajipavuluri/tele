@@ -5,7 +5,7 @@ import logging
 import sys
 import re
 from datetime import datetime
-
+"""
 from selenium import webdriver
 chrome_options = webdriver.ChromeOptions()
 chrome_options.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
@@ -18,14 +18,15 @@ chrome_options.add_experimental_option("prefs", { \
     "profile.default_content_setting_values.media_stream_camera": 2,
      "profile.default_content_setting_values.notifications": 2
   })
-
+"""
 import func
 
 def main():
     global bot
+    """
     global driver
     driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), options=chrome_options)
-    
+    """
     token = os.environ.get("TOKEN")
     bot = telebot.TeleBot(token)
 
@@ -115,6 +116,7 @@ def main():
                bot.send_message(message.chat.id, f" mail = {mail} | password = {password} | classno = {classno} ")
                print("ok logging in")
                func.login(message,classno,mail,password)
+               """
                print("del all")
                print("i doubt it got login")
                print("del all1")
@@ -124,6 +126,7 @@ def main():
                print("del all3")
                del classno
                print("del all4")
+               """
                
         except:
                bot.send_message(message.chat.id, f" /help !! after entering /mail mail@yourmail.com /password yourpassword /joinclass numberofclassoftheday do /login  ")

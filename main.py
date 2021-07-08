@@ -22,7 +22,8 @@ chrome_options.add_experimental_option("prefs", { \
 import func
 
 def main():
-    bot, driver, mail, password, classno = 0,0,0,0,0
+    global bot
+    driver, mail, password, classno = 0,0,0,0
     driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), options=chrome_options)
     
     token = os.environ.get("TOKEN")

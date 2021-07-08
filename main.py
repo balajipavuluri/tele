@@ -75,12 +75,15 @@ def main():
     @bot.message_handler(commands=['password'])
     def command(message):
       try:
+        print(78)
         global password
+        print(79)
         password=str(message.text.split()[1])
+        print(81)
         print(mail , password)
-
+        print(83)
         bot.send_message(message.chat.id, f" ok got your password: {password} now   /joinclass number   ")
-         #login(message)
+        
       except:
         bot.send_message(message.chat.id, f"format : /password yourpass |  ")
 
@@ -88,9 +91,13 @@ def main():
     @bot.message_handler(commands=['joinclass'])
     def command(message):
       try:
+        print(93)
         global classno
+        print(94)
         classno=int(message.text.split()[1])
+        print(96)
         print(mail,password,classno)
+        print(99)
         bot.send_message(message.chat.id, f" ok got your class number: {classno}  now enter /login ")
       except:
         bot.send_message(message.chat.id, f"format : /joinclass classno |  ")
@@ -99,9 +106,11 @@ def main():
     @bot.message_handler(commands=['login'])
     def command(message):
         try:
-               print(1)
+               print(104)
                current_time=now.strftime("%H:%M:%S")
+               print(105)
                bot.send_message(message.chat.id, f" ok wait im trying logging in.......... | {current_time} ")
+               
                print(f" {mail} {password} {classno}")
                bot.send_message(message.chat.id, f" mail = {mail} | password = {password} | classno = {classno} ")
                print("ok logging in")

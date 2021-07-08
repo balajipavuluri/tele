@@ -111,7 +111,7 @@ def main():
     @bot.message_handler(commands=['login'])
     def command(message):
         try:
-               print(f" length {S} ") 
+               print(f" length {S} {len(S)}") 
                if len(S)>=3:
                   print(104)
                   current_time=now.strftime("%H:%M:%S")
@@ -123,6 +123,9 @@ def main():
                   print("ok logging in")
                   func.login(message,classno,mail,password)
                   print("i doubt it got login")
+               else:
+                  bot.send_message(message.chat.id,' do /help ") 
+                  print(f" may be {mail} {password} {classno} not sent  {len(S)} ") 
                """
                print("del all")
                print("i doubt it got login")

@@ -124,7 +124,7 @@ def main():
                   func.login(message,classno,mail,password)
                   print("i doubt it got login")
                else:
-                  bot.send_message(message.chat.id,' do /help ") 
+                  bot.send_message(message.chat.id," do /help ") 
                   print(f" may be {mail} {password} {classno} not sent  {len(S)} ") 
                """
                print("del all")

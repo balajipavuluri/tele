@@ -24,9 +24,6 @@ import func
 def main():
     global bot
     global driver
-    global mail
-    global password
-    global classno 
     driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), options=chrome_options)
     
     token = os.environ.get("TOKEN")
@@ -61,6 +58,7 @@ def main():
     @bot.message_handler(commands=['mail'])
     def command(message):
       try:
+        global mail
         mail=message.text.split()[1]
         print(mail)
         chkmail=r"(^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$)"
@@ -77,6 +75,7 @@ def main():
     @bot.message_handler(commands=['password'])
     def command(message):
       try:
+        global password
         password=str(message.text.split()[1])
         print(mail , password)
 
@@ -89,6 +88,7 @@ def main():
     @bot.message_handler(commands=['joinclass'])
     def command(message):
       try:
+        global classno
         classno=int(message.text.split()[1])
         print(mail,password,classno)
         bot.send_message(message.chat.id, f" ok got your class number: {classno}  now enter /login ")

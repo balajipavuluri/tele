@@ -23,7 +23,10 @@ import func
 
 def main():
     global bot
-    driver, mail, password, classno = 0,0,0,0
+    global driver
+    global mail
+    global password
+    global classno 
     driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), options=chrome_options)
     
     token = os.environ.get("TOKEN")
@@ -95,8 +98,7 @@ def main():
 
     @bot.message_handler(commands=['login'])
     def command(message):
-        if mail != 0 and classno != 0 and password !=0:
-            try:
+        try:
                print(1)
                current_time=now.strftime("%H:%M:%S")
                bot.send_message(message.chat.id, f" ok wait im trying logging in.......... | {current_time} ")
@@ -106,11 +108,8 @@ def main():
                func.login(message,classno,mail,password)
                print("del all")
                print("i doubt it got login")
-            except:
+        except:
                bot.send_message(message.chat.id, f" /help !! after entering /mail mail@yourmail.com /password yourpassword /joinclass numberofclassoftheday do /login  ")
-        else:
-             print(f" {mail} {password} {classno}")
-             bot.send_message(message.chat.id, f" mail = {mail} | password = {password} | classno = {classno}.... ")
             
     @bot.message_handler(commands=['logout'])
     def command(message):

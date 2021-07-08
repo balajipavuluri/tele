@@ -59,7 +59,7 @@ def main(mail,password,classno):
 
 
     @bot.message_handler(commands=['mail'])
-    def command(message,mail=mail):
+    def command(message):
       try:
         global mail
         mail=message.text.split()[1]
@@ -77,7 +77,7 @@ def main(mail,password,classno):
 
 
     @bot.message_handler(commands=['password'])
-    def command(message,password=password,mail=mail):
+    def command(message):
       try:
         print(78)
         global password
@@ -94,7 +94,7 @@ def main(mail,password,classno):
 
 
     @bot.message_handler(commands=['joinclass'])
-    def command(message,mail=mail,password=password,classno=classno):
+    def command(message):
       try:
         print(93)
         global classno
@@ -128,6 +128,7 @@ def main(mail,password,classno):
                else:
                   bot.send_message(message.chat.id," do /help ") 
                   print(f" may be {mail} {password} {classno} not sent  {len(S)} ") 
+               
                """
                print("del all")
                print("i doubt it got login")
@@ -139,12 +140,15 @@ def main(mail,password,classno):
                del classno
                print("del all4")
                """
+               print("del mail start ")
+               del mail
+               print('deleted mail'
                
         except:
                bot.send_message(message.chat.id, f" /help !! after entering /mail mail@yourmail.com /password yourpassword /joinclass numberofclassoftheday do /login  ")
             
     @bot.message_handler(commands=['logout'])
-    def command(message,mail=mail,password =password, classno=classno):
+    def command(message):
         try:
             print(f"{mail} {password} {classno}")
             #mail=password=classno=0

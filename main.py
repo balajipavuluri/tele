@@ -52,6 +52,7 @@ def main():
 
     @bot.message_handler(commands=['start'])
     def command(message):
+        mail=password=classno=0
         bot.send_message(message.chat.id, 'Hi, ' + message.chat.first_name + '!')
         #login(message)
 
@@ -112,7 +113,7 @@ def main():
     def command(message):
         try:
                print(f" length {S} {len(S)}") 
-               if len(S)>=3:
+               if len(S)>=3 :
                   print(104)
                   current_time=now.strftime("%H:%M:%S")
                   print(105)

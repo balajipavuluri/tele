@@ -52,7 +52,7 @@ def main():
 
     @bot.message_handler(commands=['start'])
     def command(message):
-        mail=password=classno=0
+        #mail=password=classno=0
         bot.send_message(message.chat.id, 'Hi, ' + message.chat.first_name + '!')
         #login(message)
 
@@ -61,7 +61,7 @@ def main():
     @bot.message_handler(commands=['mail'])
     def command(message):
       try:
-        global mail
+        #global mail
         mail=message.text.split()[1]
         print(mail, S)
         chkmail=r"(^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$)"
@@ -80,7 +80,7 @@ def main():
     def command(message):
       try:
         print(78)
-        global password
+        #global password
         print(79)
         password=str(message.text.split()[1])
         print(81)
@@ -97,7 +97,7 @@ def main():
     def command(message):
       try:
         print(93)
-        global classno
+        #global classno
         print(94)
         classno=int(message.text.split()[1])
         print(96)
@@ -192,6 +192,8 @@ def main():
     def check(message):
       pass
 if __name__ == "__main__":
+    mail=password=classno=0
+    
     main()
     bot.polling()
 

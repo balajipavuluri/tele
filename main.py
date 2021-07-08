@@ -22,8 +22,7 @@ chrome_options.add_experimental_option("prefs", { \
 import func
 
 def main():
-    global bot
-    global driver
+    bot, driver, mail, password, classno = 0,0,0,0,0
     driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), options=chrome_options)
     
     token = os.environ.get("TOKEN")
@@ -58,7 +57,6 @@ def main():
     @bot.message_handler(commands=['mail'])
     def command(message):
       try:
-        global mail
         mail=message.text.split()[1]
         print(mail)
         chkmail=r"(^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$)"
@@ -75,7 +73,6 @@ def main():
     @bot.message_handler(commands=['password'])
     def command(message):
       try:
-        global password
         password=str(message.text.split()[1])
         print(mail , password)
 
@@ -88,7 +85,6 @@ def main():
     @bot.message_handler(commands=['joinclass'])
     def command(message):
       try:
-        global classno
         classno=int(message.text.split()[1])
         print(mail,password,classno)
         bot.send_message(message.chat.id, f" ok got your class number: {classno}  now enter /login ")
@@ -98,30 +94,38 @@ def main():
 
     @bot.message_handler(commands=['login'])
     def command(message):
-        try:
-            print(1)
-            current_time=now.strftime("%H:%M:%S")
-            bot.send_message(message.chat.id, f" ok wait im trying logging in.......... | {current_time} ")
-            print(f" {mail} {password} {classno}")
-            bot.send_message(message.chat.id, f" mail = {mail} | password = {password} | classno = {classno} ")
-            print("ok logging in")
-            func.login(message,classno,mail,password)
-            print("del all")
-            print("i doubt it got login")
-        except:
-            bot.send_message(message.chat.id, f" /help !! after entering /mail mail@yourmail.com /password yourpassword /joinclass numberofclassoftheday do /login  ")
-
+        if mail != 0 and classno != 0 and password !=0:
+            try:
+               print(1)
+               current_time=now.strftime("%H:%M:%S")
+               bot.send_message(message.chat.id, f" ok wait im trying logging in.......... | {current_time} ")
+               print(f" {mail} {password} {classno}")
+               bot.send_message(message.chat.id, f" mail = {mail} | password = {password} | classno = {classno} ")
+               print("ok logging in")
+               func.login(message,classno,mail,password)
+               print("del all")
+               print("i doubt it got login")
+           except:
+               bot.send_message(message.chat.id, f" /help !! after entering /mail mail@yourmail.com /password yourpassword /joinclass numberofclassoftheday do /login  ")
+        else:
+             print(f" {mail} {password} {classno}")
+             bot.send_message(message.chat.id, f" mail = {mail} | password = {password} | classno = {classno}.... ")
+            
     @bot.message_handler(commands=['logout'])
     def command(message):
-     try:
-        mail=password=classno=0
-        bot.send_message(message.chat.id, f"cleared all   ")
-        driver.quit()
-        func.log(message)
-        print("ok trying")
+     if len(mail) > 4:
+        try:
+           mail=password=classno=0
+           bot.send_message(message.chat.id, f"cleared all   ")
+           func.log(message)
+           print("ok trying")
         
-     except:
-        bot.send_message(message.chat.id, f" some problem  ")
+        except:
+           bot.send_message(message.chat.id, f" some problem  ")
+        mail=password=classno=0
+     else:
+         print(f" {mail} {password} {classno}")
+         bot.send_message(message.chat.id, f" logged out")
 
     @bot.message_handler(commands=['help'])
     def command(message):

@@ -77,6 +77,7 @@ def login(message,classno,mail,password):
       meet.click()    
       image(message)
       bot.send_message(message.chat.id, f" login success please wait joining class  ")
+      mail=password=" " 
       bot.send_message(message.chat.id, f" after completion of class try /logout :( else :) ")
       x=1 #login success goto next step
       login=1

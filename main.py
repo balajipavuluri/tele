@@ -21,7 +21,7 @@ chrome_options.add_experimental_option("prefs", { \
 """
 import func
 
-def main(mail,password,classno):
+def main():
     S=set() 
     global bot
     """
@@ -196,8 +196,8 @@ def main(mail,password,classno):
     def check(message):
       pass
 if __name__ == "__main__":
-    mail=password=classno=0
+    #mail=password=classno=0
     
-    main(mail,password,classno)
+    main()
     bot.polling()
 

@@ -61,7 +61,7 @@ def main(mail,password,classno):
     @bot.message_handler(commands=['mail'])
     def command(message,mail=mail):
       try:
-        #global mail
+        global mail
         mail=message.text.split()[1]
         print(mail, S)
         chkmail=r"(^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$)"
@@ -80,7 +80,7 @@ def main(mail,password,classno):
     def command(message,password=password,mail=mail):
       try:
         print(78)
-        #global password
+        global password
         print(79)
         password=str(message.text.split()[1])
         print(81)
@@ -97,7 +97,7 @@ def main(mail,password,classno):
     def command(message,mail=mail,password=password,classno=classno):
       try:
         print(93)
-        #global classno
+        global classno
         print(94)
         classno=int(message.text.split()[1])
         print(96)

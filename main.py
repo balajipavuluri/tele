@@ -114,19 +114,17 @@ def main():
             
     @bot.message_handler(commands=['logout'])
     def command(message):
-     if len(mail) > 4:
         try:
-           mail=password=classno=0
-           bot.send_message(message.chat.id, f"cleared all   ")
-           func.log(message)
-           print("ok trying")
+           if len(mail) > 4:
+            mail=password=classno=0
+            bot.send_message(message.chat.id, f"cleared all   ")
+            func.log(message)
+            print("ok trying")
         
         except:
-           bot.send_message(message.chat.id, f" some problem  ")
+           bot.send_message(message.chat.id, f" before logout do login /help  ")
         mail=password=classno=0
-     else:
-         print(f" {mail} {password} {classno}")
-         bot.send_message(message.chat.id, f" logged out")
+     
 
     @bot.message_handler(commands=['help'])
     def command(message):

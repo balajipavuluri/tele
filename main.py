@@ -142,7 +142,7 @@ def main(mail,password,classno):
                """
                print("del mail start ")
                del mail
-               print('deleted mail'
+               print('deleted mail') 
                
         except:
                bot.send_message(message.chat.id, f" /help !! after entering /mail mail@yourmail.com /password yourpassword /joinclass numberofclassoftheday do /login  ")

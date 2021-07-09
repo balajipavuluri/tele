@@ -215,6 +215,9 @@ def log(message):
       driver.get(link)    
       #driver.quit()
       print("success logout")
+      image(message)
+      print('images sent')
+
         
 
    except:

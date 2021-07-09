@@ -23,6 +23,7 @@ import func
 
 def main():
     S=set() 
+    login=0
     global bot
     """
     global driver
@@ -124,6 +125,7 @@ def main():
                   print("ok logging in")
                   func.login(message,classno,mail,password)
                   S.pop()
+                  login=1
                   print(f" length {S} {len(S)}") 
                   print("i doubt it got login")
                   #mail = password = " " 
@@ -160,6 +162,7 @@ def main():
             #print(f"{mail} {password} {classno}")
             bot.send_message(message.chat.id, f"cleared all   ")
             func.log(message)
+            login=0
             print("ok trying")
             S.pop()
         
@@ -175,7 +178,7 @@ def main():
     @bot.message_handler(commands=['showchat'])
     def command(message):
       try:
-        if len(S)==2:
+        if login:
           bot.send_message(message.chat.id, f" ok tring to fetch the chat..........  ")
           func.schat(message)
       except:
@@ -186,7 +189,7 @@ def main():
     @bot.message_handler(commands=['photo'])
     def command(message):
       try:
-         if len(S)==2:
+         if login:
             func.image(message)
       except:
         bot.send_message(message.chat.id, f" follow steps /help  ")

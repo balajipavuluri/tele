@@ -154,12 +154,14 @@ def main():
     @bot.message_handler(commands=['logout'])
     def command(message):
         try:
+          if len(S)==2:
             print(f"{mail} {password} {classno}")
             #mail=password=classno=0
             #print(f"{mail} {password} {classno}")
             bot.send_message(message.chat.id, f"cleared all   ")
             func.log(message)
             print("ok trying")
+            S.pop()
         
         except:
            bot.send_message(message.chat.id, f" before logout do login /help  ")
@@ -173,17 +175,19 @@ def main():
     @bot.message_handler(commands=['showchat'])
     def command(message):
       try:
-        bot.send_message(message.chat.id, f" ok tring to fetch the chat..........  ")
-        func.schat(message)
+        if len(S)==2:
+          bot.send_message(message.chat.id, f" ok tring to fetch the chat..........  ")
+          func.schat(message)
       except:
         current_time=now.strftime("%H:%M:%S")
-        bot.send_message(message.chat.id, f"  follow steps /help or class has not started {current_time} ")
+        bot.send_message(message.chat.id, f"  follow steps /help {current_time} ")
 
 
     @bot.message_handler(commands=['photo'])
     def command(message):
       try:
-        func.image(message)
+         if len(S)==2:
+            func.image(message)
       except:
         bot.send_message(message.chat.id, f" follow steps /help  ")
 

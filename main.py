@@ -124,6 +124,7 @@ def main():
                   print("ok logging in")
                   func.login(message,classno,mail,password)
                   S.pop()
+                  print(f" length {S} {len(S)}") 
                   print("i doubt it got login")
                   #mail = password = " " 
                else:

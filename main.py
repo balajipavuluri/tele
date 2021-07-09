@@ -178,9 +178,8 @@ def main():
     @bot.message_handler(commands=['showchat'])
     def command(message):
       try:
-        if login:
-          bot.send_message(message.chat.id, f" ok tring to fetch the chat..........  ")
-          func.schat(message)
+        bot.send_message(message.chat.id, f" ok tring to fetch the chat..........  ")
+        func.schat(message)
       except:
         current_time=now.strftime("%H:%M:%S")
         bot.send_message(message.chat.id, f"  follow steps /help {current_time} ")
@@ -189,8 +188,7 @@ def main():
     @bot.message_handler(commands=['photo'])
     def command(message):
       try:
-         if login:
-            func.image(message)
+        func.image(message)
       except:
         bot.send_message(message.chat.id, f" follow steps /help  ")
 

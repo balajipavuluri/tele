@@ -198,11 +198,9 @@ def image(message):
       sleep(2)
       #bot.send_chat_action(message.chat.id=userId, action=ChatAction.UPLOAD_PHOTO)
       driver.save_screenshot("ss.png")
-      bot.send_photo(message.chat.id, open('ss.png','rb'))
+      X = bot.send_photo(message.chat.id, open('ss.png','rb'))
       os.remove('ss.png')
-      msg = bot.send_message(message.chat.id,"hi phrends")
-      await asyncio.sleep(10)
-      msg.delete()
+      
    except:
        current_time=now.strftime("%H:%M:%S")
        bot.send_message(message.chat.id, f"make sure login to class or try /help time {current_time} ")

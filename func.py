@@ -211,7 +211,9 @@ def log(message):
       #bot.send_chat_action(message.chat.id=userId, action=ChatAction.UPLOAD_PHOTO)
       current_time=now.strftime("%H:%M:%S")
       bot.send_message(message.chat.id, f" logging out {current_time} ")
-      driver.quit()
+      link=os.environ.get("LINK")
+      driver.get(link)    
+      #driver.quit()
       print("success logout")
         
 

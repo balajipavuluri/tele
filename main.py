@@ -178,7 +178,7 @@ def main():
     @bot.message_handler(commands=['showchat'])
     def command(message):
       try:
-        if logo==2:
+        if len(S)==2:
             bot.send_message(message.chat.id, f" ok tring to fetch the chat..........  ")
             func.schat(message)
         else:
@@ -191,7 +191,7 @@ def main():
     @bot.message_handler(commands=['photo'])
     def command(message):
       try:
-        if logo==2:
+        if len(S)==2:
              func.image(message)
         else:
              bot.send_message(message.chat.id," do /help ") 

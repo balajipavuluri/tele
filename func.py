@@ -213,10 +213,11 @@ def log(message):
       current_time=now.strftime("%H:%M:%S")
       bot.send_message(message.chat.id, f" logging out {current_time} ")
       link=os.environ.get("LINK")
-      driver.get(link)    
-      #driver.quit()
-      print("success logout")
+      driver.get(link)   
       image(message)
+      driver.quit()
+      print("success logout")
+      #image(message)
       print('images sent')
 
         

@@ -57,6 +57,7 @@ def login(message,classno,mail,password):
    l=driver.find_element_by_xpath("/html/body/div[1]/form/table/tbody/tr/td[3]/input")
    l.click()
    l.send_keys(password)
+   driver.execute_script("window.scrollTo(0,900)")
    image(message)
    link=os.environ.get("LINK")
    driver.get(link)    

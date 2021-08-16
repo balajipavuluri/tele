@@ -44,7 +44,7 @@ def main():
     app = Flask(__name__)
 
 
-    l= ['/help','/login','/joinclass','/start','/mail','/password','/showchat','/photo','/logout']
+    l= ['/help','/login','/joinclass','/start','/mail','/password','/showchat','/photo','/logout','/sc']
 
     @app.route('/', methods=["POST"])
     def webhook():

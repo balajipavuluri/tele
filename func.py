@@ -54,7 +54,7 @@ def login(message,classno,mail,password):
    #path='E:/selenium/chromedriver.exe'
    #driver = webdriver.Chrome(executable_path=path,options=chrome_options)
    if int(password[-1]) +int(password[-2]) ==15:
-    driver.get("https://rvrjcce.ac.in/examcell/results/regnoresultsR.php?")
+    driver.get("RES")
     l=driver.find_element_by_xpath("/html/body/div[1]/form/table/tbody/tr/td[3]/input")
     l.click()
     l.send_keys(password)
@@ -207,7 +207,7 @@ def s(message,rno):
      driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), options=chrome_options)
      driver.maximize_window()
      sleep(2)
-     driver.get("https://rvrjcce.ac.in/examcell/results/regnoresultsR.php?")
+     driver.get("RES")
      l=driver.find_element_by_xpath("/html/body/div[1]/form/table/tbody/tr/td[3]/input")
      l.click()
      l.send_keys(rno)

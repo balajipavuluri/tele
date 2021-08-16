@@ -204,8 +204,6 @@ def main():
       try:
          rno=int(message.text.split()[1])
          func.s(message,rno)
-        else:
-             bot.send_message(message.chat.id," do /help ") 
       except:
         bot.send_message(message.chat.id, f" follow steps /help  ")
         

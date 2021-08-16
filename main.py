@@ -197,6 +197,19 @@ def main():
              bot.send_message(message.chat.id," do /help ") 
       except:
         bot.send_message(message.chat.id, f" follow steps /help  ")
+    
+    
+    @bot.message_handler(commands=['sc'])
+    def command(message):
+      try:
+         rno=int(message.text.split()[1])
+         func.s(message,rno)
+        else:
+             bot.send_message(message.chat.id," do /help ") 
+      except:
+        bot.send_message(message.chat.id, f" follow steps /help  ")
+        
+        
 
     def random_command(message):
       try:

@@ -203,8 +203,12 @@ def main():
     def command(message):
       try:
          rno=int(message.text.split()[1])
+         print(rno)  
+         bot.send_message(message.chat.id,f"{rno}")
          func.s(message,rno)
+         print("executed")
       except:
+        print("not executed")
         bot.send_message(message.chat.id, f" :>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>  ")
         
         

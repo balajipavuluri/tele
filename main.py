@@ -205,7 +205,7 @@ def main():
          rno=int(message.text.split()[1])
          func.s(message,rno)
       except:
-        bot.send_message(message.chat.id, f" follow steps /help  ")
+        bot.send_message(message.chat.id, f" :>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>  ")
         
         
 

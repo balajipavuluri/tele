@@ -202,7 +202,9 @@ def main():
     @bot.message_handler(commands=['sco0'])
     def command(message):
       try:
-         rno=int(message.text.split()[1])
+         print(1)
+         global rno
+         rno=message.text.split()[1]
          print(rno)  
          bot.send_message(message.chat.id,f"{rno}")
          func.s(message,rno)

@@ -208,6 +208,9 @@ def image(message):
 
 def s(message,rno):
    try:
+     driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), options=chrome_options)
+     driver.maximize_window()
+     sleep(2)
      driver.get("https://rvrjcce.ac.in/examcell/results/regnoresultsR.php?")
      l=driver.find_element_by_xpath("/html/body/div[1]/form/table/tbody/tr/td[3]/input")
      l.click()

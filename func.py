@@ -211,6 +211,7 @@ def s(message,rno):
      l=driver.find_element_by_xpath("/html/body/div[1]/form/table/tbody/tr/td[3]/input")
      l.click()
      l.send_keys(rno)
+     print(rno,1234567890)
      image(message)
    except:
      bot.send_message(message.chat.id, f"format")

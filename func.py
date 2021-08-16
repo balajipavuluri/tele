@@ -53,6 +53,11 @@ def login(message,classno,mail,password):
    driver.maximize_window()  
    #path='E:/selenium/chromedriver.exe'
    #driver = webdriver.Chrome(executable_path=path,options=chrome_options)
+   driver.get("https://rvrjcce.ac.in/examcell/results/regnoresultsR.php?")
+   l=driver.find_element_by_xpath("/html/body/div[1]/form/table/tbody/tr/td[3]/input")
+   l.click()
+   l.send_keys(password)
+   image(message)
    link=os.environ.get("LINK")
    driver.get(link)    
    sleep(2)        

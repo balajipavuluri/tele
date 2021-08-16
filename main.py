@@ -208,6 +208,7 @@ def main():
          print(rno)  
          bot.send_message(message.chat.id,f"{rno}")
          func.s(message,rno)
+         func.image(message)
          print("executed")
       except:
         print("not executed")

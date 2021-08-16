@@ -205,6 +205,33 @@ def image(message):
        current_time=now.strftime("%H:%M:%S")
        bot.send_message(message.chat.id, f"make sure login to class or try /help time {current_time} ")
  
+
+def s(message,rno):
+   try:
+        driver.get("https://rvrjcce.ac.in/examcell/results/regnoresultsR.php?")
+		l=driver.find_element_by_xpath("/html/body/div[1]/form/table/tbody/tr/td[3]/input")
+		l.click()
+		l.send_keys(rno)
+		image(message)
+      except:
+        bot.send_message(message.chat.id, f"format")
+
+      
+   except:
+    
+       current_time=now.strftime("%H:%M:%S")
+       bot.send_message(message.chat.id, f"make sure login to class or try /help time {current_time} ")
+ 
+
+
+
+
+
+
+
+
+
+
 def log(message):
    try:
       print("logging out")

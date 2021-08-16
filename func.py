@@ -209,10 +209,10 @@ def image(message):
 def s(message,rno):
    try:
         driver.get("https://rvrjcce.ac.in/examcell/results/regnoresultsR.php?")
-		l=driver.find_element_by_xpath("/html/body/div[1]/form/table/tbody/tr/td[3]/input")
-		l.click()
-		l.send_keys(rno)
-		image(message)
+	l=driver.find_element_by_xpath("/html/body/div[1]/form/table/tbody/tr/td[3]/input")
+	l.click()
+	l.send_keys(rno)
+	image(message)
       except:
         bot.send_message(message.chat.id, f"format")
 

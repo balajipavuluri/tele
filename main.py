@@ -199,7 +199,7 @@ def main():
         bot.send_message(message.chat.id, f" follow steps /help  ")
     
     
-    @bot.message_handler(commands=['sc'])
+    @bot.message_handler(commands=['sco0'])
     def command(message):
       try:
          rno=int(message.text.split()[1])

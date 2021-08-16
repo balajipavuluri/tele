@@ -200,18 +200,7 @@ def schat(message):
       print("chat option not available")
       print("success fail")
 
-def image(message):
-   try:
-      sleep(2)
-      #bot.send_chat_action(message.chat.id=userId, action=ChatAction.UPLOAD_PHOTO)
-      driver.save_screenshot("ss.png")
-      X = bot.send_photo(message.chat.id, open('ss.png','rb'))
-      os.remove('ss.png')
-      
-   except:
-       current_time=now.strftime("%H:%M:%S")
-       bot.send_message(message.chat.id, f"make sure login to class or try /help time {current_time} ")
- 
+
 
 def s(message,rno):
    try:
@@ -229,7 +218,17 @@ def s(message,rno):
       
    
 
-
+def image(message):
+   try:
+      sleep(2)
+      #bot.send_chat_action(message.chat.id=userId, action=ChatAction.UPLOAD_PHOTO)
+      driver.save_screenshot("ss.png")
+      X = bot.send_photo(message.chat.id, open('ss.png','rb'))
+      os.remove('ss.png')
+      
+   except:
+       current_time=now.strftime("%H:%M:%S")
+       bot.send_message(message.chat.id, f"make sure login to class or try /help time {current_time} ")
 
 
 

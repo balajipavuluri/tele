@@ -210,7 +210,7 @@ def s(message,rno):
 #      driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), options=chrome_options)
 #      driver.maximize_window()
 #      sleep(2)
-     RES=link=os.environ.get("LINK")
+     RES=os.environ.get("RES")
      driver.get(RES)
      l=driver.find_element_by_xpath("/html/body/div[1]/form/table/tbody/tr/td[3]/input")
      l.click()

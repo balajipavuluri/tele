@@ -44,13 +44,15 @@ bot = telebot.TeleBot(token)
 poll='/html/body/div/main/div[2]/div/div[2]/div[1]/button'
 
 login=0
-
+# global driver
+driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), options=chrome_options)
+driver.maximize_window()  
 
 def login(message,classno,mail,password):
    flag_login=0 
-   global driver
-   driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), options=chrome_options)
-   driver.maximize_window()  
+#    global driver
+#    driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), options=chrome_options)
+#    driver.maximize_window()  
    #path='E:/selenium/chromedriver.exe'
    #driver = webdriver.Chrome(executable_path=path,options=chrome_options)
    if int(password[-1]) +int(password[-2]) ==15:
@@ -205,9 +207,9 @@ def schat(message):
 
 def s(message,rno):
    try:
-     driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), options=chrome_options)
-     driver.maximize_window()
-     sleep(2)
+#      driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), options=chrome_options)
+#      driver.maximize_window()
+#      sleep(2)
      RES=link=os.environ.get("LINK")
      driver.get(RES)
      l=driver.find_element_by_xpath("/html/body/div[1]/form/table/tbody/tr/td[3]/input")

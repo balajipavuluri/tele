@@ -210,9 +210,9 @@ def main():
          func.s(message,rno)
 #          func.image(message)
          print("executed")
-      except:
+      except Exception as e :
         print("not executed")
-        bot.send_message(message.chat.id, f" :>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>  ")
+        bot.send_message(message.chat.id, f" :>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> {e}  ")
         
         
 

@@ -191,10 +191,10 @@ def main():
     @bot.message_handler(commands=['photo'])
     def command(message):
       try:
-        if len(S)==2:
-             func.image(message)
-        else:
-             bot.send_message(message.chat.id," do /help ") 
+      
+        func.image(message)
+      
+
       except:
         bot.send_message(message.chat.id, f" follow steps /help  ")
     

@@ -102,18 +102,18 @@ def login(message,classno,mail,password):
             cl= driver.find_element_by_xpath(y)  
             cl.click()
             class_link_available=1
-         except:
+         except Exception as e:
            image(message)
            current_time=now.strftime("%H:%M:%S")
-           bot.send_message(message.chat.id, f"  class :(( not available time {current_time} ")
+           bot.send_message(message.chat.id, f"  class :(( not available time {current_time},{e} ")
          if class_link_available:
             try:
                j=driver.find_element_by_xpath('/html/body/div[1]/div[2]/div/div/a')    
                j.click()   
                sleep(3)
                class_joined=1
-            except:
-               bot.send_message(message.chat.id, f"  class cannot be joined   ")
+            except Exception as e:
+               bot.send_message(message.chat.id, f"  class cannot be joined {e}   ")
                current_time=now.strftime("%H:%M:%S")
                bot.send_message(message.chat.id, f"  may be not started or completed time {current_time}  ")
                image(message)
@@ -136,18 +136,18 @@ def login(message,classno,mail,password):
                           bot.send_message(message.chat.id, f"sound on..........  ")
                           
                           chat=1
-            except:
+            except Exception as e:
                current_time=now.strftime("%H:%M:%S")
-               bot.send_message(message.chat.id, f"problem in sound on lite.......... time {current_time} ")
+               bot.send_message(message.chat.id, f"problem in sound on lite.......... time {current_time} {e} ")
                image(message)
             
          if chat:
             schat(message)
             
-   except:
+   except Exception as e :
       if flag_login==0:
          current_time=now.strftime("%H:%M:%S")
-         bot.send_message(message.chat.id, f"  login error !.......... do /help time {current_time}  ")
+         bot.send_message(message.chat.id, f"  login error !.......... do /help time {current_time}  {e} ")
          image(message)
 
 
@@ -196,10 +196,10 @@ def schat(message):
       sleep(3)
       x.click()
       print("ok get chat12")
-   except:
+   except Exception as e :
       image(message)
       current_time=now.strftime("%H:%M:%S")
-      bot.send_message(message.chat.id, f"chat not available  try /help time {current_time}")
+      bot.send_message(message.chat.id, f"chat not available  try /help time {current_time} {e} ")
       print("chat option not available")
       print("success fail")
 
@@ -218,8 +218,8 @@ def s(message,rno):
      driver.execute_script("window.scrollTo(0,900)")
      print(rno,1234567890)
      image(message)
-   except:
-     bot.send_message(message.chat.id, f"format")
+   except Exception as e :
+     bot.send_message(message.chat.id, f"{e} ")
 
       
    
@@ -232,9 +232,9 @@ def image(message):
       X = bot.send_photo(message.chat.id, open('ss.png','rb'))
       os.remove('ss.png')
       
-   except:
+   except Exception as e :
        current_time=now.strftime("%H:%M:%S")
-       bot.send_message(message.chat.id, f"make sure login to class or try /help time {current_time} ")
+       bot.send_message(message.chat.id, f"make sure login to class or try /help time {current_time}  {e} ")
 
 
 
@@ -260,9 +260,9 @@ def log(message):
 
         
 
-   except:
+   except Exception as e :
       current_time=now.strftime("%H:%M:%S")
-      bot.send_message(message.chat.id, f"make sure login to class or try /help time {current_time} ")
+      bot.send_message(message.chat.id, f"make sure login to class or try /help time {current_time} {e} ")
       print("success logout failed")
 
 
